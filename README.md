@@ -97,7 +97,7 @@ Go to `http://localhost:3003/breads`
 to confirm you see your console log
 
 
-## Add 'data'
+## Add 'data' to READ (INDEX/SHOW)
 
 On same level as `package.json`
  - `mdir models`
@@ -156,3 +156,45 @@ breads.get('/:arrayIndex', (req, res) => {
   res.send(Bread[req.params.arrayIndex])
 })
 ```
+
+## CREATE
+
+**server.js** - below configuration ABOVE routes
+
+```js
+// MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
+
+```
+
+INSOMNIA
+
+download insomnia core
+new request
+BreadsCreate
+POST
+Form URL Encoded
+
+
+![](https://i.imgur.com/9Hei1Gn.png)
+
+confirm body parsing
+
+![](https://i.imgur.com/P6kp0Q5.png)
+
+need to change on/off to true/false
+
+```js
+breads.post('/', (req, res) => {
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten === 'true'
+  } else {
+    req.body.hasGlutten === 'false'
+  }
+  Bread.push(req.body)
+  res.redirect('/breads')
+})
+```
+
+push to Bread array and redirect to confirm
+in insomnia and browser

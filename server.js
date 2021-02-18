@@ -6,6 +6,9 @@ require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
 
+// MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
+
 // ROUTES
 app.get('/', (req, res) => {
   res.send('Welcome to an awesome App about Breads')
