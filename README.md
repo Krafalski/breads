@@ -46,6 +46,7 @@ require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
 
+// ROUTES
 app.get('/', (req, res) => {
   res.send('Breads!')
 })
@@ -59,3 +60,99 @@ app.listen(PORT, () => {
 Go to `http://localhost:3003`
 
 check that it all works
+
+### END PART 1
+
+## Add Bread Routes
+
+- `mkdir controllers`
+- touch `controllers/breads_controller.js`
+
+```js
+const express = require('express')
+const breads = express.Router()
+const Bread = require('../models/bread.js')
+
+console.log(Bread)
+
+module.exports = breads
+```
+
+**server.js**
+
+ Below Landing Page Route
+
+```js
+// ROUTES
+breads.get('/', (req, res) => {
+  res.send('Welcome to an awesome App about Breads')
+})
+
+// Breads
+const breadsController = require('./controllers/breads_controller.js')
+app.use('/breads', breadsController)
+```
+
+Go to `http://localhost:3003/breads`
+to confirm you see your console log
+
+
+## Add 'data'
+
+On same level as `package.json`
+ - `mdir models`
+ - `touch models/bread.js`
+
+ **models/bread.js**
+
+```js
+module.exports = [
+  {
+    name: 'Rye',
+    hasGluten: true,
+    flourType: 'rye'
+  },
+  {
+    name: 'French',
+    hasGluten: true,
+    flourType: 'wheat'
+  },
+  {
+    name: 'Glutten Free',
+    hasGluten: false,
+    flourType: 'tapioca'
+  },
+]
+```
+
+**controllers/breads_controller.js**
+
+```js
+const Bread = require('../models/bread.js')
+
+```
+
+Confirm import:
+Where will the data appear? (Browser? Terminal?)
+
+```js
+console.log(breads)
+```
+
+## Send the 'data'
+
+**controllers/breads_controller.js**
+```js
+breads.get('/', (req, res) => {
+  res.send(Bread)
+})
+```
+
+## YOU DO
+Write a route that shows each bread
+
+```js
+breads.get('/:arrayIndex', (req, res) => {
+  res.send(Bread[req.params.arrayIndex])
+})
+```
