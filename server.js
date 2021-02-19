@@ -8,6 +8,8 @@ const PORT = process.env.PORT
 
 // MIDDLEWARE
 app.use(express.urlencoded({extended: true}))
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 // ROUTES
 app.get('/', (req, res) => {
