@@ -4,7 +4,7 @@ function Default(props) {
   return (
     <html>
     <head>
-      <title>Default</title>
+      <title>{props.title}</title>
     </head>
     <body>
       <h1>HTML Rendred!</h1>

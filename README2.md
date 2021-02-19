@@ -271,3 +271,61 @@ Let's add the data inside our `li`
       )
     })
 ```
+
+### Bonus
+
+Adding more data. Let's add a custom title to each page.
+
+**views/layouts/Default.jsx**
+
+```js
+function Default(props) {
+  return (
+    <html>
+    <head>
+      <title>{props.title}</title>
+    </head>
+    <body>
+      <h1>HTML Rendred!</h1>
+      {props.children}
+    </body>
+    </html>
+  )
+}
+```
+
+**controllers/breads_controller.js**
+
+```js
+breads.get('/', (req, res) => {
+    res.render('Index',
+      {
+        breads: Bread,
+        title: 'Index Page'
+      }
+    )
+})
+```
+
+**views/Index.jsx**
+
+```js
+function Index ({breads, title}) {
+    return (
+      <Default title={title}>
+        <h2>Index Page</h2>
+        <ul>
+        {
+          breads.map((bread, index)=> {
+            return (
+              <li key={index}>
+               {bread.name}
+              </li>
+            )
+          })
+        }
+        </ul>
+      </Default>
+    )
+}
+```
