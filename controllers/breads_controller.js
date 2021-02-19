@@ -13,6 +13,10 @@ breads.get('/', (req, res) => {
   // res.send(Bread)
 })
 
+breads.get('/new', (req, res) => {
+    res.render('new')
+})
+
 breads.get('/:arrayIndex', (req, res) => {
   if (Bread[req.params.arrayIndex]) {
     res.render('Show', {
@@ -24,6 +28,7 @@ breads.get('/:arrayIndex', (req, res) => {
 })
 
 breads.post('/', (req, res) => {
+  console.log(req.body)
   if(req.body.hasGluten === 'on') {
     req.body.hasGluten === 'true'
   } else {

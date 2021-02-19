@@ -1,0 +1,7 @@
+body {
+  background-color: floralwhite;
+}
+
+input[type=submit], button {
+  background-color: wheat;
+}
