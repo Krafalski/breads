@@ -16,9 +16,16 @@ app.get('/', (req, res) => {
   res.send('Welcome to an awesome App about Breads')
 })
 
+
+
 // Breads
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
+
+// 404
+app.get('*', (req, res) => {
+  res.render('404')
+})
 
 // LISTEN
 app.listen(PORT, () => {
