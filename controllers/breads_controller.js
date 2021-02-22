@@ -3,7 +3,7 @@ const breads = express.Router()
 const Bread = require('../models/bread.js')
 
 
-
+// INDEX 1/7
 breads.get('/', (req, res) => {
     res.render('Index',
       {
@@ -14,10 +14,12 @@ breads.get('/', (req, res) => {
   // res.send(Bread)
 })
 
+// NEW 2/7
 breads.get('/new', (req, res) => {
     res.render('new')
 })
 
+// EDIT 3/7
 breads.get('/:index/edit', (req, res) => {
     res.render('edit', {
       bread: Bread[req.params.index],
@@ -25,6 +27,7 @@ breads.get('/:index/edit', (req, res) => {
     })
 })
 
+// SHOW 4/7
 breads.get('/:arrayIndex', (req, res) => {
   if (Bread[req.params.arrayIndex]) {
     res.render('Show', {
@@ -36,6 +39,7 @@ breads.get('/:arrayIndex', (req, res) => {
   }
 })
 
+// CREATE 5/7
 breads.post('/', (req, res) => {
   console.log(req.body)
   if(req.body.hasGluten === 'on') {
@@ -47,6 +51,7 @@ breads.post('/', (req, res) => {
   res.redirect('/breads')
 })
 
+// UPDATE 6/7
 breads.put('/:index', (req, res) => {
   if(req.body.hasGluten === 'on'){
     req.body.hasGluten = true
@@ -62,7 +67,7 @@ breads.put('/:index', (req, res) => {
 //   })
 })
 
-
+// DELETE 7/7
 breads.delete('/:index', (req, res) => {
   Bread.splice(req.params.index, 1)
 
