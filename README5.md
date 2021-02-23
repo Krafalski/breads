@@ -109,3 +109,15 @@ Test!
 
 
 NOTE! Works with postman and not insomnia! Weird!
+
+## Bonus
+
+Hmm, our `edit` form is very similar to our `new` form.
+
+Looking at how we can reuse `Defaut`, is there a way you could think about creating a form component and reusing it for these views?
+
+## Bonus 2
+
+You want to get competitive with a friend, so you want to have a tally of the total number of breads you have show up on the index route.
+
+Figure out a way to show your bread totals!
