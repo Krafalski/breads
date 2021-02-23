@@ -71,9 +71,10 @@ check that it all works
 ```js
 const express = require('express')
 const breads = express.Router()
-const Bread = require('../models/bread.js')
 
-console.log(Bread)
+breads.get('/', (req, res) => {
+  res.send('this is the index at /breads')
+})
 
 module.exports = breads
 ```
@@ -94,7 +95,7 @@ app.use('/breads', breadsController)
 ```
 
 Go to `http://localhost:3003/breads`
-to confirm you see your console log
+to confirm your controller is set up properly. 
 
 
 ## Add 'data' to READ (INDEX/SHOW)
