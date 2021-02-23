@@ -121,3 +121,11 @@ Looking at how we can reuse `Defaut`, is there a way you could think about creat
 You want to get competitive with a friend, so you want to have a tally of the total number of breads you have show up on the index route.
 
 Figure out a way to show your bread totals!
+
+## Bonus 3
+
+When people add a `flourType`, `wheat`, ` Wheat` and `Wheat` will all be different. Find a way to normalize it.
+
+## Bonus 4
+
+There aren't that many `flourType`s, rather than letting users type a value, change that input to `option/select`
