@@ -6,6 +6,7 @@ function Index ({breads, title}) {
       <Default title={title}>
         {/* This is a JSX comment */}
         <a href="/breads/new"><button>Add a new bread</button></a>
+        <h3>A list of my breads:</h3>
         <ul>
         {
           breads.map((bread, index)=> {

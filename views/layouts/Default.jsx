@@ -13,12 +13,15 @@ function Default(props) {
     <body>
       <div className="container">
       <header>
-        <h1>BreadCRUD</h1>
+        <h1><a href="/breads">BreadCRUD</a></h1>
         <h2>{props.title}</h2>
       </header>
 
         {props.children}
       </div>
+      <footer>
+
+      </footer>
     </body>
     </html>
   )

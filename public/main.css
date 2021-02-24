@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Mali:ital,wght@0,200;0,300;1,200;1,300&family=Montserrat:wght@100;300;400;500;600&family=Poiret+One&display=swap');
 
 
+ /* *
+  {
+    border: 1px solid gold;
+  } */
 :root {
   --primary-text: #8A4E1D;
   --anchor-text: #E27E2D;
@@ -12,6 +16,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Poiret One', cursive;
+  background-color: #ebe1dd;
+  background-color: #e6dbda;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23faf6bc'/%3E%3Cstop offset='1' stop-color='%23e6dbda'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23b37854' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23b37854' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
@@ -45,35 +54,77 @@ input[type=submit], button {
 }
 
 img {
-  width: 50%;
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
 }
 
 a {
   color: var(--anchor-text);
+  text-decoration: none;
 }
 
+a:hover {
+  color: var(--anchor-text);
+  opacity: .5;
+}
+
+.info {
+  width: 40%;
+}
+
+.container {
+  height: 90vh;
+}
 
 .image-container {
   height: 150px;
+  display: relative;
+  width: 40vw;
 }
 
+.show-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2vw;
+}
 /* referenc: https://codepen.io/eriksenlezama/pen/ddyYXv */
 .image {
   perspective: 3000px;
-  width: 50%;
+  /* width: 100%; */
   position: absolute;
-  left: 30%;
-  top:45%;
-  transform: translate(-50%, -50%);
+  left: 8vw;
   transform-style: preserve-3d;
+}
+li {
+  font-size: 1.5em;
 }
 .image img {
-  transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
-  box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
   transition: all .4s;
   transform-style: preserve-3d;
+  animation-name: straighten;
+  animation-duration: 3s;
+  animation-delay: .2s;
+  animation-fill-mode: forwards;
 }
-.image:hover img {
-  transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+@keyframes straighten {
+from {
+  transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+  box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
+}
+to  {transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);}
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info > a {
+  text-align: center;
+  display: block;
+  width: 50%;
+  margin: auto;
+  font-size: 1.5em;
 }

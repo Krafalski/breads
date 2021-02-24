@@ -1,32 +1,17 @@
 const React = require('react')
 const Default = require('./layouts/Default')
+const BreadForm = require('./components/breadForm')
 
-function New ({bread, title}) {
+function New ({bread ={}, title, index=0}) {
     return (
       <Default title={title}>
-        <h2>Add a new bread</h2>
-        <form action="/breads" method="POST">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-          />
-          <label htmlFor="flourType">Flour Type</label>
-          <input
-            type="text"
-            name="flourType"
-            id="flourType"/>
-          <label htmlFor="hasGluten">Has Gluten?</label>
-          <input
-            type="checkbox"
-            name="hasGluten"
-            id="hasGluten"
-            defaultChecked
-          />
-          <br />
-          <input type="submit"/>
-        </form>
+        <BreadForm
+          action={`/breads`}
+          method="POST"
+           title={title}
+           bread={bread}
+           index={index}
+         />
       </Default>
     )
 }
