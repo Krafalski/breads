@@ -1,7 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Mali:ital,wght@0,200;0,300;1,200;1,300&family=Montserrat:wght@100;300;400;500;600&family=Poiret+One&display=swap');
+
+
+:root {
+  --primary-text: #8A4E1D;
+  --anchor-text: #E27E2D;
+}
+
 body {
   background-color: floralwhite;
+  color: var(--primary-text);
+  padding: 0;
+  margin: 0;
+  font-family: 'Poiret One', cursive;
+}
+
+h1 {
+  font-family: 'Akaya Telivigala', cursive;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
 }
 
 input[type=submit], button {
   background-color: wheat;
+}
+
+img {
+  width: 50%;
+}
+
+a {
+  color: var(--anchor-text);
+}
+
+
+.image-container {
+  height: 150px;
+}
+
+/* referenc: https://codepen.io/eriksenlezama/pen/ddyYXv */
+.image {
+  perspective: 3000px;
+  width: 50%;
+  position: absolute;
+  left: 30%;
+  top:45%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+.image img {
+  transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+  box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
+  transition: all .4s;
+  transform-style: preserve-3d;
+}
+.image:hover img {
+  transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
 }

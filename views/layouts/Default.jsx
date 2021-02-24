@@ -12,7 +12,11 @@ function Default(props) {
     </head>
     <body>
       <div className="container">
+      <header>
         <h1>BreadCRUD</h1>
+        <h2>{props.title}</h2>
+      </header>
+
         {props.children}
       </div>
     </body>
