@@ -1,8 +1,10 @@
+// DEPENDENCIES
 const express = require('express')
 const breads = express.Router()
 const Bread = require('../models/bread.js')
 
 
+// Routes
 // INDEX 1/7
 breads.get('/', (req, res) => {
     res.render('Index',
@@ -11,7 +13,6 @@ breads.get('/', (req, res) => {
         title: 'Index Page'
       }
     )
-  // res.send(Bread)
 })
 
 // NEW 2/7
@@ -60,22 +61,12 @@ breads.put('/:index', (req, res) => {
   }
   Bread[req.params.index] = req.body
   res.redirect(`/breads/${req.params.index}`)
-
-//   res.render('Show', {
-//     bread: Bread,
-//     index: req.params.index
-//   })
 })
 
 // DELETE 7/7
 breads.delete('/:index', (req, res) => {
   Bread.splice(req.params.index, 1)
-
-  req.method = 'GET'
-  res.redirect('/breads')
-  // res.render('Index', {
-  //   breads: Bread
-  // })
+  res.status(303).redirect('/breads')
 })
 
 module.exports = breads
