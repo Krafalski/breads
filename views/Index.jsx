@@ -5,19 +5,24 @@ function Index ({breads, title}) {
     return (
       <Default title={title}>
         {/* This is a JSX comment */}
-        <a href="/breads/new"><button>Add a new bread</button></a>
-        <h3>A list of my breads:</h3>
-        <ul>
+        <div className="newButton">
+          <a href="/breads/new"><button>Add a new bread</button></a>
+        </div>
+
+        <main className="container override">
         {
           breads.map((bread, index)=> {
             return (
-              <li key={index}>
-               <a href={`/breads/${index}`}>{bread.name}</a>
-              </li>
+              <section key={index}>
+              <a href={`/breads/${index}`}>
+                 <img src={bread.image} alt={bread.name} />
+                 <p>{bread.name}</p>
+               </a>
+              </section>
             )
           })
         }
-        </ul>
+        </main>
       </Default>
     )
 }

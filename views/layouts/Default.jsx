@@ -11,7 +11,7 @@ function Default(props) {
       <link rel="stylesheet" href="/main.css" />
     </head>
     <body>
-      <div className="container">
+      <div className="wrapper">
       <header>
         <h1><a href="/breads">BreadCRUD</a></h1>
         <h2>{props.title}</h2>
