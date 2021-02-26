@@ -32,7 +32,7 @@ Express Full CRUD with SSR JSX
 
 **.env**
 ```
-PORT=3000
+PORT=3003
 ```
 
 **server.js**
