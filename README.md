@@ -168,6 +168,7 @@ app.use(express.urlencoded({extended: true}))
 
 ```
 
+## TO DO SWAP TO POSTMAN
 INSOMNIA
 
 download insomnia core
@@ -188,9 +189,9 @@ need to change on/off to true/false
 ```js
 breads.post('/', (req, res) => {
   if(req.body.hasGluten === 'on') {
-    req.body.hasGluten === 'true'
+    req.body.hasGluten = true 
   } else {
-    req.body.hasGlutten === 'false'
+    req.body.hasGlutten = false
   }
   Bread.push(req.body)
   res.redirect('/breads')
