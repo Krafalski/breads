@@ -50,10 +50,24 @@ breads.post('/', (req, res) => {
     req.body.image = 'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
   }
   if(req.body.hasGluten === 'on') {
-    req.body.hasGluten === 'true'
+    req.body.hasGluten = 'true'
   } else {
-    req.body.hasGlutten === 'false'
+    req.body.hasGlutten = 'false'
   }
+  if (!Array.isArray(req.body.instructions)) {
+    req.body.instructions = [req.body.instructions]
+  }
+  req.body.info = {}
+  req.body.info.prepTime = req.body.prepTime
+  req.body.info.cookTime = req.body.cookTime
+  req.body.info.totalTime = req.body.totalTime
+  req.body.info.servings = req.body.servings
+  req.body.info.yields = req.body.yeilds
+  delete req.body.prepTime
+  delete req.body.cookTime
+  delete req.body.totalTime
+  delete req.body.servings
+  delete req.body.yields
   Bread.push(req.body)
   res.redirect('/breads')
 })
@@ -68,7 +82,7 @@ breads.put('/:index', (req, res) => {
   } else {
     req.body.hasGluten = false
   }
-  Bread[req.params.index] = req.body
+  Bread[req.params.index] = Object.assign(Bread[req.params.index], req.body)
   res.redirect(`/breads/${req.params.index}`)
 })
 

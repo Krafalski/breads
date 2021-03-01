@@ -13,7 +13,7 @@ function Index ({breads, title}) {
         {
           breads.map((bread, index)=> {
             return (
-              <section key={index}>
+              <section className="card" key={index}>
               <a href={`/breads/${index}`}>
                  <img src={bread.image} alt={bread.name} />
                  <p>{bread.name}</p>
